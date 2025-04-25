@@ -7,8 +7,7 @@
     "dev": "nodemon main.js",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
-    "build": "cd frontend && npm install && npm run build && cd .. && npm install",
-    "launch": "concurrently \"npm run start\" \"cd frontend && npm run preview\""
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",

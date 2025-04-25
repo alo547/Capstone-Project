@@ -6,7 +6,6 @@ import HomePage from "./components/HomePage";
 import SingleBooks from "./components/SingleBooks";
 import './components/index.css';
 import './components/general.css';
-import { css } from "@emotion/react";
 
 function App() {
     const [user, setUser] = useState(null);

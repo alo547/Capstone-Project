@@ -20,7 +20,7 @@ app.listen(PORT, async () => {
     await pool.connect();
     await createTables();
     await seedDatabase();
-    console.log(` Server running at http://localhost:${PORT}`);
+    console.log(` Server running at ${PORT}`);
 });
 
 app.post("/api/register", async (req, res) => {

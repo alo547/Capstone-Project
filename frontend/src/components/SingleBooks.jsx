@@ -14,10 +14,11 @@ const BookPage = () => {
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedReviewText, setEditedReviewText] = useState("");
     const [editedCommentText, setEditedCommentText] = useState("");
+    const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     const fetchBookDetails = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/api/books/${id}`);
+            const res = await fetch(`${apiURL}/api/books/${id}`);
             const data = await res.json();
             setBook(data.book);
             setReviews(data.reviews);

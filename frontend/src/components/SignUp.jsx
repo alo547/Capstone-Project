@@ -7,11 +7,12 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/register", {
+            const res = await fetch(`${apiURL}/api/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

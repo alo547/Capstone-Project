@@ -12,11 +12,12 @@ function App() {
     const [books, setBooks] = useState([]);
     const [search, setSearch] = useState("");
     const [token, setToken] = useState(localStorage.getItem("token"));
+    const apiURL = process.env.REACT_APP_API_BASE_URL;
 
     const fetchUserInfo = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`http://localhost:3000/api/me`, {
+            const res = await fetch(`${apiURL}/api/me`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ function App() {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await fetch("http://localhost:3000/api/books");
+                const response = await fetch(`${apiURL}/api/books`);
                 const data = await response.json();
                 setBooks(Array.isArray(data) ? data : []);
             } catch (error) {

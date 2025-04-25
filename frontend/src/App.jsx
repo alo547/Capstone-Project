@@ -13,6 +13,7 @@ function App() {
     const [search, setSearch] = useState("");
     const [token, setToken] = useState(localStorage.getItem("token"));
     const apiURL = process.env.REACT_APP_API_BASE_URL;
+    console.log(apiURL)
 
     const fetchUserInfo = async () => {
         try {

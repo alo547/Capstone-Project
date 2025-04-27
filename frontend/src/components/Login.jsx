@@ -6,7 +6,7 @@ const Login = ({ setUser, setToken }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const apiURL = process.env.REACT_APP_API_BASE_URL;
+    const apiURL = import.meta.env.VITE_API_BASE_URL;
 
     const handleLogin = async (e) => {
         e.preventDefault();

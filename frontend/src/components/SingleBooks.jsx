@@ -14,7 +14,7 @@ const BookPage = () => {
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedReviewText, setEditedReviewText] = useState("");
     const [editedCommentText, setEditedCommentText] = useState("");
-    const apiURL = process.env.REACT_APP_API_BASE_URL;
+    const apiURL = import.meta.env.VITE_API_BASE_URL;
 
     const fetchBookDetails = async () => {
         try {
@@ -30,7 +30,7 @@ const BookPage = () => {
     const fetchUserInfo = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`http://localhost:3000/api/me`, {
+            const res = await fetch(`${apiURL}/api/me`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const BookPage = () => {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/reviews", {
+            const res = await fetch(`${apiURL}/api/reviews`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const BookPage = () => {
     const handleCommentSubmit = async (e, reviewId) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/comments", {
+            const res = await fetch(`${apiURL}/api/comments`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const BookPage = () => {
 
     const handleDeleteReview = async (reviewId) => {
         try {
-            await fetch(`http://localhost:3000/api/reviews/${reviewId}`, {
+            await fetch(`${apiURL}/api/reviews/${reviewId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -123,7 +123,7 @@ const BookPage = () => {
 
     const handleEditReview = async (reviewId) => {
         try {
-            await fetch(`http://localhost:3000/api/reviews/${reviewId}`, {
+            await fetch(`${apiURL}/api/reviews/${reviewId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -142,7 +142,7 @@ const BookPage = () => {
         const token = localStorage.getItem("token")
         console.log(token)
         try {
-            await fetch(`http://localhost:3000/api/comments/${commentId}`, {
+            await fetch(`${apiURL}/api/comments/${commentId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -156,7 +156,7 @@ const BookPage = () => {
 
     const handleEditComment = async (commentId) => {
         try {
-            await fetch(`http://localhost:3000/api/comments/${commentId}`, {
+            await fetch(`${apiURL}/api/comments/${commentId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -12,7 +12,7 @@ function App() {
     const [books, setBooks] = useState([]);
     const [search, setSearch] = useState("");
     const [token, setToken] = useState(localStorage.getItem("token"));
-    const apiURL = process.env.NODE_ENV === "production" ? "https://capstone-project-f4ao.onrender.com/": process.env.REACT_APP_API_BASE_URL
+    const apiURL = import.meta.env.VITE_API_BASE_URL
 
     const fetchUserInfo = async () => {
         try {
